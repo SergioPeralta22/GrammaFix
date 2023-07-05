@@ -1,4 +1,5 @@
 import flet as ft
+from api_config import StandardEnglish
 
 
 def main(page: ft.Page):
@@ -22,6 +23,11 @@ def main(page: ft.Page):
     output_container = ft.Container(
         content=output_text, margin=20, padding=20, bgcolor="#f2f2f2", border_radius=30
     )
+
+    def print_result(e):
+        answer = StandardEnglish(user_input.value).convert()
+        output_text.value = answer
+        page.update()
 
     page.add(
         logo,
