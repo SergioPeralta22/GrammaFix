@@ -23,7 +23,12 @@ def main(page: ft.Page):
         content=output_text, margin=20, padding=20, bgcolor="#f2f2f2", border_radius=30
     )
 
-    page.add(logo, user_input, output_container)
+    page.add(
+        logo,
+        user_input,
+        ft.ElevatedButton("submit", on_click=print_result),
+        output_container,
+    )
 
 
 ft.app(target=main, assets_dir="assets", view=ft.WEB_BROWSER)
